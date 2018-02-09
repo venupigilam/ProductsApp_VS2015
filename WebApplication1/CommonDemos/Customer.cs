@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonDemos
 {
-    public class Customer
+    public class Customer : IComparable<Customer>
     {
         public int ID { get; set; }
         public String Name { get; set; }
@@ -50,6 +50,11 @@ namespace CommonDemos
             CustDicitionary.Add(5, cust5);
 
             return CustDicitionary;
+        }
+
+        public int CompareTo(Customer other)
+        {
+            return this.Salary.CompareTo(other.Salary);
         }
     }
 
