@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonDemos", "CommonDemos\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListsDemo", "ListsDemo\ListsDemo.csproj", "{A5BAB6C7-905B-48E2-9767-F173EA6E81FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A5BAB6C7-905B-48E2-9767-F173EA6E81FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5BAB6C7-905B-48E2-9767-F173EA6E81FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5BAB6C7-905B-48E2-9767-F173EA6E81FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
