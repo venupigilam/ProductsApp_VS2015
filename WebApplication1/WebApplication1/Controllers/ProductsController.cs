@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using WebApplication1.Models;
 
@@ -22,6 +23,10 @@ namespace WebApplication1.Controllers
         {
             List<Product> products = p.ProductsList();
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, products);
+            response.Headers.CacheControl = new CacheControlHeaderValue()
+            {
+                MaxAge = TimeSpan.FromMinutes(2)
+            };
             return response;
         }
         public IHttpActionResult GetProduct(int id)

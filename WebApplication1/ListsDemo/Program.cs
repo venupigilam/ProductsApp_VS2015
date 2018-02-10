@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace ListsDemo
 {
@@ -13,7 +14,7 @@ namespace ListsDemo
         {
             //If we set the index to 2 but it will allow us to add more than 2
             Console.WriteLine("list of customers in list");
-            List<Customer> custlist = new List<Customer>(2);
+            List<Customer> custlist = new List<Customer>(100);
 
             Dictionary<int, Customer> dict = Customer.CustData();
 
@@ -22,6 +23,8 @@ namespace ListsDemo
             custlist.Add(dict[3]);
             custlist.Add(dict[5]);
 
+            Dictionary<string, Country> DictCoutries = new Dictionary<string, Country>();
+            DictCoutries = CommonDemos.Country.GetCountries();
             //Part-1
             //PartOne(custlist);
             //Part-2
@@ -29,7 +32,11 @@ namespace ListsDemo
             //Part-3
             //PartThree(custlist);
             //Part-4
-            PartFour(custlist);
+            //PartFour(custlist);
+            //Part-5
+            //partFive(custlist);
+            //Part-6
+            partSix(DictCoutries);
             Console.ReadLine();
         }
 
@@ -144,7 +151,7 @@ namespace ListsDemo
                 Console.WriteLine("ID : {0},Name : {1}, Salary : {2}", c.ID, c.Name, c.Salary);
             }
             Console.WriteLine("GetRange");
-            List<Customer> cl= custlist.GetRange(0, 2);
+            List<Customer> cl = custlist.GetRange(0, 2);
             foreach (Customer c in cl)
             {
                 Console.WriteLine("ID : {0},Name : {1}, Salary : {2}", c.ID, c.Name, c.Salary);
@@ -161,10 +168,10 @@ namespace ListsDemo
             {
                 Console.WriteLine("ID : {0},Name : {1}, Salary : {2}", c.ID, c.Name, c.Salary);
             }
-            
+
         }
 
-        public static  void PartFour(List<Customer> custlist)
+        public static void PartFour(List<Customer> custlist)
         {
             List<int> numbers = new List<int>() { 1, 6, 7, 4, 2, 9 };
             Console.WriteLine("Before Sorting");
@@ -186,7 +193,7 @@ namespace ListsDemo
             }
 
             custlist.Sort();
-            Console.WriteLine("Before Sorting" );
+            Console.WriteLine("Before Sorting");
             foreach (Customer c in custlist)
             {
                 Console.WriteLine(c.Salary);
@@ -233,6 +240,50 @@ namespace ListsDemo
             {
                 return x.Name.CompareTo(y.Name);
             }
+        }
+
+        public static void partFive(List<Customer> custlist)
+        {
+            Console.WriteLine("TrueForAll");
+            Console.WriteLine("Are all salaries Greater than 5000 :" + custlist.TrueForAll(c => c.Salary > 5000));
+
+            Console.WriteLine("ReadOnly");
+            ReadOnlyCollection<Customer> ReadonlyCustomer = custlist.AsReadOnly();
+            Console.WriteLine("ReadOnly customers List" + ReadonlyCustomer.Count());
+
+            Console.WriteLine("List Customers Before TrimExess");
+            Console.WriteLine(custlist.Capacity);
+            Console.WriteLine("List Customers After TrimExess");
+            custlist.TrimExcess();
+            Console.WriteLine(custlist.Capacity);
+        }
+
+        public static void partSix(Dictionary<string, Country> DictCountry)
+        {
+            //DictCountry
+            string CCode = string.Empty;
+            String userChoice = string.Empty;
+            do
+            {
+                Console.WriteLine("Please enter country code");
+                CCode = Console.ReadLine().ToUpper();
+                Country cc = DictCountry.ContainsKey(CCode) ? DictCountry[CCode] : null;
+                if (cc != null)
+                {
+                    Console.WriteLine("Country => Id : {0},Name : {1}, Capital : {2}", cc.Id, cc.Name, cc.Capital);
+                }
+                else
+                {
+                    Console.WriteLine("Country Code Not Found");
+                }
+
+                do
+                {
+                    Console.WriteLine("Do you want to Continue : Y/N");
+                    userChoice = Console.ReadLine().ToUpper();
+                } while (userChoice != "N" && userChoice !="Y");
+
+            } while (userChoice == "Y");
         }
     }
 }
