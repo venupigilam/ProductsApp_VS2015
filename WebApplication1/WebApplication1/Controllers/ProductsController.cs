@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
 {
     public class ProductsController : ApiController
     {
-        Product p = new Product();
+        Product p = new Product(); 
 
         //public IEnumerable<Product> GetProducts()
         //{
