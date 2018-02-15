@@ -13,18 +13,18 @@ namespace ListsDemo
         static void Main(string[] args)
         {
             //If we set the index to 2 but it will allow us to add more than 2
-            Console.WriteLine("list of customers in list");
-            List<Customer> custlist = new List<Customer>(100);
+            //Console.WriteLine("list of customers in list");
+            //List<Customer> custlist = new List<Customer>(100);
 
-            Dictionary<int, Customer> dict = Customer.CustData();
+            //Dictionary<int, Customer> dict = Customer.CustData();
 
-            custlist.Add(dict[1]);
-            custlist.Add(dict[2]);
-            custlist.Add(dict[3]);
-            custlist.Add(dict[5]);
+            //custlist.Add(dict[1]);
+            //custlist.Add(dict[2]);
+            //custlist.Add(dict[3]);
+            //custlist.Add(dict[5]);
 
-            Dictionary<string, Country> DictCoutries = new Dictionary<string, Country>();
-            DictCoutries = CommonDemos.Country.GetCountries();
+            //Dictionary<string, Country> DictCoutries = new Dictionary<string, Country>();
+            //DictCoutries = CommonDemos.Country.GetCountries();
             //Part-1
             //PartOne(custlist);
             //Part-2
@@ -38,7 +38,9 @@ namespace ListsDemo
             //Part-6
             //partSix(DictCoutries);
             //List Queue : First In First Out
-            ListQueue();
+            //ListQueue();
+            //List Stack : Last in First Out
+            ListStack();
             Console.ReadLine();
         }
 
@@ -293,7 +295,7 @@ namespace ListsDemo
             Country c1 = new Country { Id = 1, Name = "India", Capital = "Delhi" };
             Country c2 = new Country { Id = 2, Name = "Pakisthan", Capital = "Multan" };
             Country c3 = new Country { Id = 3, Name = "SriLanka", Capital = "Colombo" };
-            Country c4 = new Country { Id = 3, Name = "Bangladesh", Capital = "Dhaka" };
+            Country c4 = new Country { Id = 4, Name = "Bangladesh", Capital = "Dhaka" };
 
             Queue<Country> CountryQueue = new Queue<Country>();
 
@@ -316,6 +318,141 @@ namespace ListsDemo
             foreach (Country cc in CountryQueue)
             {
                 Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+            c1 = CountryQueue.Dequeue();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            Console.WriteLine("After Removed Second Country");
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+            c1 = CountryQueue.Dequeue();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            Console.WriteLine("After Removed Third Country");
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+            c1 = CountryQueue.Dequeue();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            Console.WriteLine("After Removed Fourth Country");
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+
+             c1 = new Country { Id = 1, Name = "India", Capital = "Delhi" };
+             c2 = new Country { Id = 2, Name = "Pakisthan", Capital = "Multan" };
+            c3 = new Country { Id = 3, Name = "SriLanka", Capital = "Colombo" };
+            c4 = new Country { Id = 4, Name = "Bangladesh", Capital = "Dhaka" };
+
+            CountryQueue.Enqueue(c1);
+            CountryQueue.Enqueue(c2);
+            CountryQueue.Enqueue(c3);
+            CountryQueue.Enqueue(c4);
+
+            c1 = c2 = c3 = c4 = null;
+            // Retrieving the first country Without Removing
+            Console.WriteLine("Peek for Retrieving the first country Without Removing");
+            c1 = CountryQueue.Peek();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+
+            //Searching
+            Console.WriteLine("Searching with Contains");
+            if(CountryQueue.Contains(c1))
+            {
+                Console.WriteLine("Cusomte c1 Found");
+            }
+            else
+            {
+                Console.WriteLine("Customer Not found");
+            }
+        }
+
+        public static void ListStack()
+        {
+            Country c1 = new Country { Id = 1, Name = "India", Capital = "Delhi" };
+            Country c2 = new Country { Id = 2, Name = "Pakisthan", Capital = "Multan" };
+            Country c3 = new Country { Id = 3, Name = "SriLanka", Capital = "Colombo" };
+            Country c4 = new Country { Id = 4, Name = "Bangladesh", Capital = "Dhaka" };
+
+            Stack<Country> CountryQueue = new Stack<Country>();
+
+            CountryQueue.Push(c1);
+            CountryQueue.Push(c2);
+            CountryQueue.Push(c3);
+            CountryQueue.Push(c4);
+
+            c1 = c2 = c3 = c4 = null;
+
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+
+            Console.WriteLine("Removed and Assigned First Country");
+            c1 = CountryQueue.Pop();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            Console.WriteLine("After Removed First Country");
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+            c1 = CountryQueue.Pop();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            Console.WriteLine("After Removed Second Country");
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+            c1 = CountryQueue.Pop();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            Console.WriteLine("After Removed Third Country");
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+            c1 = CountryQueue.Pop();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            Console.WriteLine("After Removed Fourth Country");
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+
+            c1 = new Country { Id = 1, Name = "India", Capital = "Delhi" };
+            c2 = new Country { Id = 2, Name = "Pakisthan", Capital = "Multan" };
+            c3 = new Country { Id = 3, Name = "SriLanka", Capital = "Colombo" };
+            c4 = new Country { Id = 4, Name = "Bangladesh", Capital = "Dhaka" };
+
+            CountryQueue.Push(c1);
+            CountryQueue.Push(c2);
+            CountryQueue.Push(c3);
+            CountryQueue.Push(c4);
+
+            c1 = c2 = c3 = c4 = null;
+            // Retrieving the first country Without Removing
+            Console.WriteLine("Peek for Retrieving the first country Without Removing");
+            c1 = CountryQueue.Peek();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+
+            //Searching
+            Console.WriteLine("Searching with Contains");
+            if (CountryQueue.Contains(c1))
+            {
+                Console.WriteLine("Cusomte c1 Found");
+            }
+            else
+            {
+                Console.WriteLine("Customer Not found");
             }
         }
     }
