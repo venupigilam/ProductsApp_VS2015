@@ -36,7 +36,9 @@ namespace ListsDemo
             //Part-5
             //partFive(custlist);
             //Part-6
-            partSix(DictCoutries);
+            //partSix(DictCoutries);
+            //List Queue : First In First Out
+            ListQueue();
             Console.ReadLine();
         }
 
@@ -281,9 +283,40 @@ namespace ListsDemo
                 {
                     Console.WriteLine("Do you want to Continue : Y/N");
                     userChoice = Console.ReadLine().ToUpper();
-                } while (userChoice != "N" && userChoice !="Y");
+                } while (userChoice != "N" && userChoice != "Y");
 
             } while (userChoice == "Y");
+        }
+
+        public static void ListQueue()
+        {
+            Country c1 = new Country { Id = 1, Name = "India", Capital = "Delhi" };
+            Country c2 = new Country { Id = 2, Name = "Pakisthan", Capital = "Multan" };
+            Country c3 = new Country { Id = 3, Name = "SriLanka", Capital = "Colombo" };
+            Country c4 = new Country { Id = 3, Name = "Bangladesh", Capital = "Dhaka" };
+
+            Queue<Country> CountryQueue = new Queue<Country>();
+
+            CountryQueue.Enqueue(c1);
+            CountryQueue.Enqueue(c2);
+            CountryQueue.Enqueue(c3);
+            CountryQueue.Enqueue(c4);
+
+            c1 = c2 = c3 = c4 = null;
+
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
+
+            Console.WriteLine("Removed and Assigned First Country");
+            c1 = CountryQueue.Dequeue();
+            Console.WriteLine(c1.Id + "," + c1.Name + "," + c1.Capital);
+            Console.WriteLine("After Removed First Country");
+            foreach (Country cc in CountryQueue)
+            {
+                Console.WriteLine(cc.Id + "," + cc.Name + "," + cc.Capital);
+            }
         }
     }
 }
