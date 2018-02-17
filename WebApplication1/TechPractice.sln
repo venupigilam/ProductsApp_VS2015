@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListsDemo", "ListsDemo\List
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreadingExample", "MultiThreadingExample\MultiThreadingExample.csproj", "{F5371498-78F6-4089-A05D-B6E6EBFA6144}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFEC8118-EBC6-449E-B9D2-D807F725E1C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5371498-78F6-4089-A05D-B6E6EBFA6144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5371498-78F6-4089-A05D-B6E6EBFA6144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5371498-78F6-4089-A05D-B6E6EBFA6144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5371498-78F6-4089-A05D-B6E6EBFA6144}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
